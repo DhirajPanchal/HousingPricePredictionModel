@@ -1,0 +1,21 @@
+# Ignore build output
+target/
+!target/service_hpp_analysis.jar
+
+# Ignore IDE and OS files
+*.iml
+.idea/
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+
+# Ignore version control
+.git
+.gitignore
+
+# Ignore only if not building inside Docker
+.mvn/
+mvnw
+mvnw.cmd

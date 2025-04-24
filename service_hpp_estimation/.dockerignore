@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment (PyCharm or others)
+.venv/
+venv/
+ENV/
+
+# Environment files
+.env
+.env.*
+
+# Logs and temp
+*.log
+*.tmp
+
+# Jupyter and notebooks
+*.ipynb
+
+# OS-specific
+.DS_Store
+Thumbs.db

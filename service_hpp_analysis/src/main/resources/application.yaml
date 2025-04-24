@@ -1,0 +1,28 @@
+#
+#
+#   HPP Market Analysis  (8004)
+#
+#
+
+server:
+  port: 8004
+
+spring:
+  app:
+    name: service_hpp_market_analysis
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+  cache:
+    type: simple
+ml:
+  model:
+    url: ${ML_MODEL_URL:http://localhost:8006}

@@ -1,0 +1,90 @@
+#####################
+# Common for IntelliJ / PyCharm
+#####################
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+*.log
+
+#####################
+# OS generated files
+#####################
+.DS_Store
+Thumbs.db
+
+#####################
+# Python
+#####################
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyc
+*.pyd
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.ipynb_checkpoints
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+hypothesis/
+pytestdebug.log
+
+#####################
+# Java
+#####################
+*.class
+*.jar
+*.war
+*.ear
+*.log
+hs_err_pid*
+*.hprof
+
+# Maven
+target/
+*.log
+*.mvn/
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+**/build/
+
+# Kotlin
+*.kotlin_module
+
+# JUnit
+*.ec
+
+#####################
+# Jupyter (optional for Python)
+#####################
+.ipynb_checkpoints/
+
+#####################
+# VS Code (if used too)
+#####################
+.vscode/
+
+#####################
+# Misc
+#####################
+*.pid
+*.pid.lock
+*.tmp
+*.bak
+*.swp
