@@ -1,22 +1,47 @@
-#####################
-# Common for IntelliJ / PyCharm
-#####################
+###########################
+# IntelliJ IDEA / PyCharm
+###########################
 .idea/
 *.iml
 *.iws
 *.ipr
 out/
-*.log
 
-#####################
-# OS generated files
-#####################
-.DS_Store
-Thumbs.db
+###########################
+# VS Code
+###########################
+.vscode/
+.history/
 
-#####################
+###########################
+# Node / ReactJS
+###########################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+build/
+.env
+.env.*    # e.g., .env.local, .env.production
+
+# Next.js
+.next/
+out/
+.vercel/
+
+# React Native
+.expo/
+.expo-shared/
+
+# Testing
+coverage/
+jest-html-reporters-*
+
+###########################
 # Python
-#####################
+###########################
 __pycache__/
 *.py[cod]
 *$py.class
@@ -42,9 +67,9 @@ htmlcov/
 hypothesis/
 pytestdebug.log
 
-#####################
+###########################
 # Java
-#####################
+###########################
 *.class
 *.jar
 *.war
@@ -55,7 +80,6 @@ hs_err_pid*
 
 # Maven
 target/
-*.log
 *.mvn/
 
 # Gradle
@@ -70,19 +94,15 @@ build/
 # JUnit
 *.ec
 
-#####################
-# Jupyter (optional for Python)
-#####################
-.ipynb_checkpoints/
+###########################
+# OS Generated
+###########################
+.DS_Store
+Thumbs.db
 
-#####################
-# VS Code (if used too)
-#####################
-.vscode/
-
-#####################
+###########################
 # Misc
-#####################
+###########################
 *.pid
 *.pid.lock
 *.tmp
