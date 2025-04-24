@@ -1,4 +1,4 @@
-![N|Solid](https://raw.githubusercontent.com/DhirajPanchal/KART_V01_CONFIG/main/activeRx_Pharmacy_c02.png) 
+![N|Solid](https://raw.githubusercontent.com/DhirajPanchal/HousingPricePredictionModel/main/ppp.jpg) 
 
 # HousingPricePredictionModel
 Housing Price Prediction ML &amp; APIs
