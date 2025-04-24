@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+
+  service_hpp_model:
+    image: service_hpp_model:latest
+    ports:
+      - "8006:8006"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8006/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    container_name: hpp_model
+
+  service_hpp_estimation:
+    image: service_hpp_estimation:latest
+    ports:
+      - "8005:8005"
+    environment:
+      - ML_MODEL_URL=http://hpp_model:8006
+    depends_on:
+      service_hpp_model:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8005/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    container_name: hpp_estimation
+
+  service_hpp_analysis:
+    image: service_hpp_analysis:latest
+    ports:
+      - "8004:8004"
+    environment:
+      - ML_MODEL_URL=http://hpp_model:8006
+    depends_on:
+      service_hpp_model:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8004/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    container_name: hpp_analysis
