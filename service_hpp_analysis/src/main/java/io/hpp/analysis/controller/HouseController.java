@@ -31,29 +31,51 @@ public class HouseController {
         return service.predictPrice(input);
     }
 
-    @Operation(summary = "Get paginated list of properties")
-    @GetMapping("/properties")
-    public Page<HouseAttributes> getAll(Pageable pageable) {
-        return service.getAll(pageable);
-    }
-
-    @Operation(summary = "Filter properties by bedroom count")
-    @GetMapping("/properties/filter")
-    public Page<HouseAttributes> getFiltered(@RequestParam Integer bedrooms, Pageable pageable) {
-        return service.getByBedrooms(bedrooms, pageable);
-    }
 
     // "total_properties": 50,
-    @Operation(summary = "Get average, min, max property prices")
+    @Operation(summary = "Get average,  min, max property prices, median_sqft, avg_school_rating")
     @GetMapping("/market-summary")
-    public Map<String, Double> getSummary() {
+    public Map<String, String> getSummary() {
         return Map.of(
 
-                "average", service.getAveragePrice(),
-                "min", service.getMinPrice(),
-                "max", service.getMaxPrice()
+                "avg_price", "" + service.getAveragePrice(),
+                "median_sqft", "" + service.getMedianSquareFootage(),
+                "price_range_min", "" + service.getMinPrice(),
+                "price_range_max", "" + service.getMinPrice(),
+                "avg_school_rating", "" + service.getAverageSchoolRating()
         );
     }
+
+    @Operation(summary = "Price and Bedrooms Graph")
+    @GetMapping("/graph-price-bedrooms")
+    public List<Map<String, Object>> getGraphPriceByBedrooms() {
+        return service.getPriceByBedroomsGraph();
+    }
+
+    @Operation(summary = "Year Build vs Price Graph")
+    @GetMapping("/graph-year-build-price")
+    public List<Map<String, Object>> getGraphYearBuiltPrice() {
+        return service.getYearBuiltPriceGraph();
+    }
+
+    @Operation(summary = "Get All Dataset")
+    @GetMapping("/properties")
+    public List<HouseAttributes> getAllProperties() {
+        return service.getAllProperties();
+    }
+
+
+//    @Operation(summary = "Get paginated list of properties")
+//    @GetMapping("/properties")
+//    public Page<HouseAttributes> getAll(Pageable pageable) {
+//        return service.getAll(pageable);
+//    }
+//
+//    @Operation(summary = "Filter properties by bedroom count")
+//    @GetMapping("/properties/filter")
+//    public Page<HouseAttributes> getFiltered(@RequestParam Integer bedrooms, Pageable pageable) {
+//        return service.getByBedrooms(bedrooms, pageable);
+//    }
 
 
     @Operation(summary = "Export property data as CSV")
@@ -72,7 +94,6 @@ public class HouseController {
     public String healthCheck() {
         return "OK";
     }
-
 
 
 }

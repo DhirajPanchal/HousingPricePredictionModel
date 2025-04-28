@@ -52,6 +52,69 @@ public class HouseService {
     }
 
 
+    /**
+     * Summary API sub methods
+     */
+
+    public Double getAveragePrice() {
+        return repository.averagePrice();
+    }
+
+    @Cacheable("summary")
+    public Double getMedianSquareFootage() {
+        return repository.findMedianSquareFootage();
+    }
+
+
+    public Double getMinPrice() {
+        return repository.minPrice();
+    }
+
+    public Double getMaxPrice() {
+        return repository.maxPrice();
+    }
+
+    public Double getAverageSchoolRating() {
+        return repository.findAverageSchoolRating();
+    }
+
+    /**
+     * Graph 1
+     */
+
+    public List<Map<String, Object>> getPriceByBedroomsGraph() {
+        List<Object[]> result = repository.findAveragePriceByBedrooms();
+        return result.stream()
+                .map(obj -> Map.of(
+                        "bedrooms", obj[0],
+                        "avgPrice", obj[1]
+                ))
+                .toList();
+    }
+
+    /**
+     * Graph 2
+     */
+
+    public List<Map<String, Object>> getYearBuiltPriceGraph() {
+        List<Object[]> result = repository.findAveragePriceByYearBuilt();
+        return result.stream()
+                .map(obj -> Map.of(
+                        "yearBuilt", obj[0],
+                        "avgPrice", obj[1]
+                ))
+                .toList();
+    }
+
+
+    /**
+     * Datagrid.
+     */
+    public List<HouseAttributes> getAllProperties() {
+        return repository.findAll();
+    }
+
+
     @Cacheable("allProperties")
     public Page<HouseAttributes> getAll(Pageable pageable) {
         return repository.findAll(pageable);
@@ -60,19 +123,6 @@ public class HouseService {
     @Cacheable("filteredProperties")
     public Page<HouseAttributes> getByBedrooms(Integer bedrooms, Pageable pageable) {
         return repository.findAllByBedrooms(bedrooms, pageable);
-    }
-
-    @Cacheable("summary")
-    public Double getAveragePrice() {
-        return repository.averagePrice();
-    }
-
-    public Double getMinPrice() {
-        return repository.minPrice();
-    }
-
-    public Double getMaxPrice() {
-        return repository.maxPrice();
     }
 
 
@@ -105,5 +155,7 @@ public class HouseService {
         Map<String, Object> snakeCaseMap = MappingUtil.convertToSnakeCaseMap(request);
         return modelClient.predictPrice(snakeCaseMap);
     }
+
+
 
 }

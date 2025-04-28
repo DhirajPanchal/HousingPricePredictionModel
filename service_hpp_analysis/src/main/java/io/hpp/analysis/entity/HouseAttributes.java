@@ -1,8 +1,13 @@
 package io.hpp.analysis.entity;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import lombok.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -20,8 +25,6 @@ public class HouseAttributes {
     private Integer bedrooms;
 
     @NotNull
-//    @DecimalMin("1.0")
-//    @Digits(integer = 2, fraction = 1)
     private Double bathrooms;
 
     @NotNull
@@ -39,3 +42,5 @@ public class HouseAttributes {
     @NotNull
     private Double price;
 }
+
+
