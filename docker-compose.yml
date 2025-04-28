@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   service_hpp_model:
-    image: service_hpp_model:latest
+    image: service_hpp_model:r1
     ports:
       - "8006:8006"
     healthcheck:
@@ -14,7 +14,7 @@ services:
     container_name: hpp_model
 
   service_hpp_estimation:
-    image: service_hpp_estimation:latest
+    image: service_hpp_estimation:r1
     ports:
       - "8005:8005"
     environment:
@@ -30,7 +30,7 @@ services:
     container_name: hpp_estimation
 
   service_hpp_analysis:
-    image: service_hpp_analysis:latest
+    image: service_hpp_analysis:r1
     ports:
       - "8004:8004"
     environment:

@@ -1,1 +1,22 @@
-npm run start:live
+my-project-root/
+├── docker-compose.yml
+├── service_hpp_model/
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── app/...
+├── service_hpp_estimation/
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── app/...
+├── service_hpp_analysis/
+│   ├── Dockerfile
+│   ├── target/service_hpp_analysis.jar
+│   └── pom.xml
+
+docker build -t service_hpp_model:r1 ./service_hpp_model
+docker build -t service_hpp_estimation:r1 ./service_hpp_estimation
+docker build -t service_hpp_analysis:r1 ./service_hpp_analysis
+
+docker-compose up
+docker compose up --detach
+docker compose down
