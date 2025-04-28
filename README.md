@@ -1,4 +1,3 @@
-# Housing Price Prediction
 # Model, APIs for Price Estimation & Market Analysis
 
 
